@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 const cheerio = require('cheerio');
 const axios = require('axios');
 
-return axios.get('http://anoboy.org/2018/11/jojo-no-kimyou-na-bouken-ougon-no-kaze-episode-8/').then(res=>{
+return axios.get(<?php $_SERVER['REQUEST_URI']?>).then(res=>{
     const $ = cheerio.load(res.data)('iframe').attr('data-src');
     if($.indexOf('https://www.blogger.com/') !== -1){
       return  v1($).then(res=>{
