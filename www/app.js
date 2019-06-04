@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 const cheerio = require('cheerio');
 const axios = require('axios');
 
-return axios.get(<?php $_SERVER['REQUEST_URI']?>).then(res=>{
+return axios.get(<?php echo $_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]; ?>).then(res=>{
     const $ = cheerio.load(res.data)('iframe').attr('data-src');
     if($.indexOf('https://www.blogger.com/') !== -1){
       return  v1($).then(res=>{
